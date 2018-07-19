@@ -1,0 +1,40 @@
+<style lang="less">
+  
+</style>
+
+<template>
+  <view class="container">
+    
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import BasePage from './base-page'
+
+  export default class Favorite extends BasePage {
+    config = {
+      navigationBarTitleText: '我的收藏'
+    }
+    components = {
+      
+    }
+
+    data = {
+      
+    }
+
+    computed = {
+      
+    }
+
+    methods = {
+      
+    }
+
+    onLoad() {
+      
+    }
+
+}
+</script>

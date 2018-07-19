@@ -1,0 +1,39 @@
+<template>
+  <block>
+    <text class='list-divider'/>
+    <view class='list-top'>
+      <image class='list-avatar' src="{{item.avatar}}"/>
+      <text class='list-name'>{{item.name}}</text>
+    </view>
+
+    <view class='list-center-text'>
+        <text class='list-title'>{{item.title}}</text>
+        <text class='list-content'>{{item.content}}</text>
+        <image class='list-image' src="{{item.image}}"/>
+        <text class='list-line'/>
+    </view>
+
+    <view class='list-bottom'>
+      <image class='list-zan-icon' src='../images/zan_normal.png'/>
+      <text class='list-zan-text'>{{item.zan}}</text>
+      <image class='list-comment-icon' src='../images/comment_icon.png'/>
+      <text class='list-comment-text'>{{item.comment}}</text>
+      <image class='list-share-icon' src='../images/share_icon.png'/>
+      <text class='list-share-text'>分享</text>
+    </view>
+  </block>
+</template>
+
+<script>
+
+import wepy from 'wepy'
+export default class List extends wepy.component {
+  data = {
+   
+  }
+
+  onLoad () {
+    console.log('onLoad component list');
+  }
+}
+</script>

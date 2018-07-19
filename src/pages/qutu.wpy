@@ -1,0 +1,162 @@
+<style lang="less">
+  .divider {
+    height: 10rpx;
+    width: 100%;
+    background-color: #eee;
+    margin-bottom: 25rpx;
+    display: block;
+  }
+
+  .top, .center-text, .bottom {
+    width: 90%;
+    position: relative;
+    left: auto;
+    right: auto;
+    display: block;
+    float: left;
+  }
+
+	.avatar {
+    width: 80rpx;
+    height: 80rpx;
+    float: left;
+    display: inline;
+    border-radius: 50%;
+    text-align: center;
+  }
+
+  .name {
+    margin-left: 15rpx;
+    font-size: 30rpx;
+    color: #ccc;
+    text-align: center;
+    height: 80rpx;
+    line-height: 80rpx;
+  }
+
+  .title {
+    font-size: 30rpx;
+    display: block;
+    margin-top: 20rpx;
+  }
+
+  .content {
+    font-size: 25rpx;
+    display: block;
+    color: gray;
+    margin-top: 20rpx;
+  }
+
+  .image {
+    display: block;
+    margin: 20rpx auto;
+    width: 100%;
+  }
+
+  .line {
+    margin: 0 auto 20rpx auto;
+    background-color: #eee;
+    height: 1rpx;
+    display: block;
+    clear: both;
+  }
+
+  .zan-icon, .comment-icon, .share-icon {
+    width: 30rpx;
+    height: 30rpx;
+    margin-left: 35rpx;
+    text-align: center;
+  }
+
+  .bottom {
+    margin-bottom: 20rpx;
+    text-align: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  .zan-text, .comment-text, .share-text {
+    font-size: 20rpx;
+    text-align: center;
+    margin-left: 15rpx;
+    height: 30rpx;
+    line-height: 30rpx;
+  }
+</style>
+
+<template>
+  <view class='container'>
+     <repeat wx:for="{{list}}" wx:key="index" wx:index="index" wx:item="item">
+        <text class='divider'/>
+          <view class='top'>
+            <image class='avatar' src="{{item.avatar}}"/>
+            <text class='name'>{{item.name}}</text>
+          </view>
+
+          <view class='center-text'>
+              <text class='title'>{{item.title}}</text>
+              <text class='content'>{{item.content}}</text>
+              <image class='image' src="{{item.image}}"/>
+              <text class='line'/>
+          </view>
+
+          <view class='bottom'>
+            <image class='zan-icon' src='../images/zan_normal.png'/>
+            <text class='zan-text'>{{item.zan}}</text>
+            <image class='comment-icon' src='../images/comment_icon.png'/>
+            <text class='comment-text'>{{item.comment}}</text>
+            <image class='share-icon' src='../images/share_icon.png'/>
+            <text class='share-text'>分享</text>
+          </view>
+      </repeat>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import List from '../components/list'
+  import testMixin from '../mixins/test'
+  import BasePage from './base-page'
+
+  export default class Qutu extends BasePage {
+    config = {
+      navigationBarTitleText: '趣图',
+      enablePullDownRefresh: true
+    }
+    components = {
+      list: List
+    }
+
+    mixins = [testMixin]
+
+    data = {
+      list: [{id: 1, title: '多技能，走位，卡视角，这操作，一看就是大神级别的高手玩家，简称：大高玩', avatar: 'http://qqtn.com/up/2014-5/14012382174481397.jpg', name: '暴走萝莉', content: '多技能，走位，卡视角，这操作，一看就是大神级别的高手玩家，简称：大高玩', image: 'http://pic21.photophoto.cn/20111106/0020032891433708_b.jpg', comment: '2', zan: '6'},
+           {id: 2, title: '多技能，走位，卡视角，这操作，一看就是大神级别的高手玩家，简称：大高玩', avatar: 'http://qqtn.com/up/2014-5/14012382174481397.jpg', name: '暴走萝莉', content: '多技能，走位，卡视角，这操作，一看就是大神级别的高手玩家，简称：大高玩', image: 'http://pic21.photophoto.cn/20111106/0020032891433708_b.jpg', comment: '2', zan: '6'}]
+    }
+
+    computed = {
+      now () {
+        return +new Date()
+      }
+    }
+
+    methods = {
+
+    }
+
+    onPullDownRefresh() {
+      console.log('onPullDownRefresh method invoke. qutu page');
+      wepy.stopPullDownRefresh();
+    }
+
+    onReachBottom() {
+      console.log('onReachBottom method invoke. qutu page.');
+    }
+
+    onLoad() {
+      
+    }
+  }
+</script>
