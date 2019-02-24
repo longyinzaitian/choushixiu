@@ -14,10 +14,10 @@
     "module-a": false,
     "./src/components/list": "./src/components/wepy-list.wpy"
   },
-  "author": "husyin <nyyin@qq.com>",
+  "author": "nyyin@qq.com",
   "license": "MIT",
   "dependencies": {
-    "wepy": "^1.6.0",
+    "wepy": "^1.7.2",
     "wepy-async-function": "^1.4.4",
     "wepy-com-toast": "^1.0.2"
   },
